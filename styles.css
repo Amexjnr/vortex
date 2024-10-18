@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* New Color Scheme */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #e74c3c;
+    --accent-color: #f1c40f;
+    --background-color: #ecf0f1;
+    --text-dark: #2c3e50;
+    --text-light: #fff;
+}
+
+/* Header Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 20px; /* Added padding to prevent text from touching screen edges */
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url(Gif.gif) repeat;
+    opacity: 0.1; /* Subtle visibility */
+    animation: moveBackground 15s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50px); }
+}
+
+.navbar {
+    position: fixed; /* Fixed at the top, doesn't move on scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background */
+    z-index: 1000; /* Ensures it's always on top */
+    transition: all 0.3s ease;
+}
+
+.navbar.shrink {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.navbar .nav-links {
+    list-style: none;
+}
+
+.navbar .nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.navbar .nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+.navbar .nav-links a:hover{
+    color: #1F51FF;
+    transition: 0.4s;
+}
+
+.hero-content h1 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero-content p {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+    margin-bottom: 50px;
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #1F51FF;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1, .hero-content p, .cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation when the section becomes visible */
+.service-item, .portfolio-item {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    margin-top: 100px;
+}
+
+.service-item.visible, .portfolio-item.visible {
+    opacity: 1;
+}
+
+.services-section, .portfolio-section {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Section Styling */
+.services-section, .portfolio-section, .contact-section {
+    padding: 80px 20px; /* Increase padding to give sections more breathing room */
+    text-align: center;
+}
+
+/* Fixing the Grid Layout */
+.services-grid, .portfolio-grid {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Better fit for different screen sizes */
+    gap: 30px;
+}
+
+.service-item, .portfolio-item {
+    background: var(--background-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 350px; /* Added max-width to keep consistent sizes */
+    margin: 0 auto; /* Center each item */
+}
+
+.service-item:hover, .portfolio-item:hover {
+    transform: perspective(500px) rotateX(5deg) scale(1.05);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.service-item img, .portfolio-item img {
+    width: 100%;
+    max-width: 300px; /* Restrict the maximum width to prevent oversized images */
+    height: auto; /* Keep aspect ratio */
+    margin: 0 auto;
+    border-radius: 8px;
+    object-fit: cover; /* Ensure images fit nicely within the given size */
+}
+
+/* SVG Icon Hover Animation */
+.service-item svg {
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover svg {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.service-item:hover .animated-icon {
+    transform: scale(1.2) rotate(20deg); /* Example transformation */
+    transition: transform 0.5s ease;
+}
+
+.testimonials-section {
+    background-color: var(--background-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.testimonial-grid {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-item {
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    padding: 15px;
+    color: var(--text-light);
+    border-radius: 10px;
+    max-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Form */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 15px;
+    text-align: center;
+}
+
+/* Mobile-first adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .testimonial-item {
+        max-width: 100%;
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+#dynamic-text {
+    display: inline-block;
+    width: 180px; /* Adjust based on the longest text in your phrases */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Live Chat Section */
+.live-chat-section {
+    background-color: var(--background-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.live-chat-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.live-chat-section p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.chat-button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Cost Calculator Section */
+.cost-calculator-section {
+    background-color: var(--background-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cost-calculator-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.calculator-form {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+    background: var(--text-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.calculator-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.calculator-form button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.calculator-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+#quote-result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: var(--background-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.faq-item h3 {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* Case Studies Section */
+.case-studies-section {
+    background-color: var(--background-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.case-studies-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.case-study-item {
+    margin-bottom: 30px;
+    text-align: left;
+    background: var(--text-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.case-study-item h3 {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.case-study-item p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* Before/After Gallery Section */
+.before-after-gallery {
+    background-color: var(--background-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.before-after-gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.before-after-gallery p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.slider .slide img {
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Digital Services - Vortex</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="hero-section" data-aos="fade-in">
+        <nav class="navbar">
+            <div class="logo">Vortex</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Bringing Your Ideas to Life</h1>
+            <p>Top-tier services in Web Design, mobile app development, and graphics design, data analysis and more.</p>
+            <a class="cta-button" data-aos="zoom-in" href="#contact">Get Started</a>
+        </div>
+    </header>
+    
+    <!-- Services Section -->
+    <section class="services-section" data-aos="fade-up" id="services" aria-labelledby="services-heading">
+        <h2 id="services-heading">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+                <img alt="Web Design" loading="lazy" src="web-design_resized.jpg"/>
+                <h3>Web Design</h3>
+                <p>Beautiful and functional websites that grow your presence.</p>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+                <img alt="Graphics Design" loading="lazy" src="graphics-design_resized.jpg"/>
+                <h3>Graphics Design</h3>
+                <p>Visually compelling graphics for your brand’s identity.</p>
+            </div>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+                <img alt="Mobile App Development" loading="lazy" src="mobile-app_resized.jpg"/>
+                <h3>Mobile App Development</h3>
+                <p>Intuitive and engaging mobile experiences for your customers.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" data-aos="fade-up" id="portfolio" aria-labelledby="portfolio-heading">
+        <h2 id="portfolio-heading">Our Work</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+                <img alt="Project 1" src="project1.jpg"/>
+                <h4>Project Name 1</h4>
+            </div>
+            <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+                <img alt="Project 2" src="project2.jpg"/>
+                <h4>Project Name 2</h4>
+            </div>
+            <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
+                <img alt="Project 3" src="project3.png"/>
+                <h4>Project Name 3</h4>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" data-aos="fade-up" id="testimonials" aria-labelledby="testimonials-heading">
+        <h2 id="testimonials-heading">What Our Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-item" data-aos="flip-up" data-aos-delay="100">
+                <p>"Vortex delivered an amazing product for our website revamp. Highly recommended!"</p>
+                <h4>- Client A</h4>
+            </div>
+            <div class="testimonial-item" data-aos="flip-up" data-aos-delay="200">
+                <p>"Their mobile app development exceeded our expectations. Fast and reliable service."</p>
+                <h4>- Client B</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Chat Section -->
+    <section class="live-chat-section" id="live-chat">
+        <h2>Chat with Us</h2>
+        <p>Have questions? Our team is here to help! Use our live chat to get real-time assistance.</p>
+        <button class="chat-button">Start Chat</button>
+    </section>
+
+    <!-- Service Cost Calculator Section -->
+    <section class="cost-calculator-section" id="cost-calculator" aria-labelledby="cost-calculator-heading">
+        <h2 id="cost-calculator-heading">Get a Quote</h2>
+        <p>Estimate the cost for your project. <br> Select the service and provide details.</p>
+        <form class="calculator-form">
+            <label for="service-type">Service Type:</label>
+            <select id="service-type">
+                <option value="web-design">Web Design</option>
+                <option value="app-development">Mobile App Development</option>
+                <option value="graphics-design">Graphics Design</option>
+            </select>
+            <label for="project-size">Project Size:</label>
+            <select id="project-size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+            <button type="button" id="calculate-btn">Calculate</button>
+            <p id="quote-result"></p>
+        </form>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What services do you offer?</h3>
+            <p>We offer web design, mobile app development, and graphics design, data analysis and even more services to help grow your business.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How long does a typical project take?</h3>
+            <p>Project timelines vary based on scope, but most projects are completed within 2-6 weeks.</p>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies-section" id="case-studies" aria-labelledby="case-studies-heading">
+        <h2 id="case-studies-heading">Our Case Studies</h2>
+        <div class="case-study-item">
+            <h3>Project 1: Website Redesign</h3>
+            <p>Challenge: Redesign an outdated website for better user experience. <br>Solution: We created a modern, responsive site that increased traffic by 30%.</p>
+        </div>
+        <div class="case-study-item">
+            <h3>Project 2: Mobile App Launch</h3>
+            <p>Challenge: Develop a mobile app to improve customer engagement. <br>Solution: A sleek, user-friendly app that improved retention by 50%.</p>
+        </div>
+    </section>
+
+    <!-- Before/After Gallery Section -->
+    <section class="before-after-gallery" id="before-after" aria-labelledby="before-after-heading">
+        <h2 id="before-after-heading">Before & After</h2>
+        <p>See the transformation of our projects.</p>
+        <div class="slider">
+            <div class="slide">
+                <img src="before.jpg" alt="Before - Original project" height="1000" />
+                <img src="after.jpg" alt="After - Redesigned project" height="1000" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" data-aos="fade-up" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Us</h2>
+        <form class="contact-form" data-aos="fade-up">
+            <input id="name" placeholder="Your Name" required="" type="text"/>
+            <input id="email" placeholder="Your Email" required="" type="email"/>
+            <textarea id="message" placeholder="Your Message" required="" rows="5"></textarea>
+            <button data-aos="zoom-in" type="submit">Send Message</button>
+        </form>
+        <div id="form-feedback" aria-live="polite"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade-in">
+        <div class="footer-content">
+            <p>© 2024 Vortex. All rights reserved.</p>
+            <div class="social-links">
+                <a data-aos="fade-up" data-aos-delay="100" href="#">Facebook</a>
+                <a data-aos="fade-up" data-aos-delay="200" href="#">Twitter</a>
+                <a data-aos="fade-up" data-aos-delay="300" href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
